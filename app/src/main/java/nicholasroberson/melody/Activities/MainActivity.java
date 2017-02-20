@@ -1,6 +1,5 @@
-package nicholasroberson.melody;
+package nicholasroberson.melody.Activities;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.speech.RecognitionListener;
@@ -21,6 +20,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+
+import nicholasroberson.melody.R;
 
 import static android.Manifest.*;
 
