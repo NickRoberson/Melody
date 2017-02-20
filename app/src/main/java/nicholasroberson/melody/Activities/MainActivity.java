@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Log.e("ACTIVITY_STARTED", "Started MainActivity");
+
         tts = new TextToSpeech(this, this);
 
         etData = (EditText) findViewById(R.id.etData);
