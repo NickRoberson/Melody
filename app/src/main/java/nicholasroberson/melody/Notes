@@ -1,0 +1,12 @@
+NLP:
+
+Use stanford NLP library to parse text from user and extract information.
+
+http://stanfordnlp.github.io/CoreNLP/api.html
+
+
+API:
+
+List of API's that provide certain information on songs, playlists, artists, etc ... :
+
+https://musicmachinery.com/music-apis/
