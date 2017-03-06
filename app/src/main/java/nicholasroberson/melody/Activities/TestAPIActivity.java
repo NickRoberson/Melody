@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import nicholasroberson.melody.Model.Search_Track.TrackResults;
 import nicholasroberson.melody.MusixMatchAPI.MusixMatchAPI;
 import nicholasroberson.melody.Model.Get_Artists.*;
 import nicholasroberson.melody.Model.Matcher_Track.*;
@@ -56,7 +57,10 @@ public class TestAPIActivity extends AppCompatActivity {
         getSongLyrics();
         // WORKS GETS THE INFO FOR A SINGLE TRACK
         getTrackInfo();
-
+        // WORKS
+        searchForTracks();
+        // WORKS
+        searchForTracksByLyrics();
 
     }
 
@@ -132,6 +136,44 @@ public class TestAPIActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<MatchedTrack> call, Throwable t) {
+                Log.e("TRACK_MATCH: onFailure", t.toString());
+            }
+        });
+    }
+
+    public void searchForTracks() {
+        String track = "paint it black";
+        String artist = "rolling stones";
+        // need both the artist and the track name
+        Call<TrackResults> call = musix.searchTracks(apiKey, track, artist, "", DEFAULT_FORMAT);
+
+        call.enqueue(new Callback<TrackResults>() {
+            @Override
+            public void onResponse(Call<TrackResults> call, Response<TrackResults> response) {
+                Log.e("TRACK_MATCH: onResponse", response.isSuccessful() + " ");
+                TrackResults trackResults = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<TrackResults> call, Throwable t) {
+                Log.e("TRACK_MATCH: onFailure", t.toString());
+            }
+        });
+    }
+
+    public void searchForTracksByLyrics() {
+        String lyrics = "For all the girls that got dick from kanye west If you see 'em in the streets give 'em kanye's best";
+        Call<TrackResults> call = musix.searchTracks(apiKey, "", "", lyrics, DEFAULT_FORMAT);
+
+        call.enqueue(new Callback<TrackResults>() {
+            @Override
+            public void onResponse(Call<TrackResults> call, Response<TrackResults> response) {
+                Log.e("TRACK_MATCH: onResponse", response.isSuccessful() + " ");
+                TrackResults trackResults = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<TrackResults> call, Throwable t) {
                 Log.e("TRACK_MATCH: onFailure", t.toString());
             }
         });

@@ -14,7 +14,6 @@ public class Body implements Serializable
     @SerializedName("lyrics")
     @Expose
     private Lyrics lyrics;
-    private final static long serialVersionUID = -2839866749779727925L;
 
     public Lyrics getLyrics() {
         return lyrics;

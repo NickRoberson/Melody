@@ -4,6 +4,7 @@ import nicholasroberson.melody.Model.Get_Artists.*;
 import nicholasroberson.melody.Model.Matcher_Lyrics.SongLyrics;
 import nicholasroberson.melody.Model.Get_Tracks.Tracks;
 import nicholasroberson.melody.Model.Matcher_Track.MatchedTrack;
+import nicholasroberson.melody.Model.Search_Track.TrackResults;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -48,4 +49,12 @@ public interface MusixMatchAPI {
                                     @Query("format") String format,
                                     @Query("f_has_lyrics") Integer f_has_lyrics);
 
+
+    @Headers({"Content-Type: application/json"})
+    @GET("track.search")
+    Call<TrackResults> searchTracks(@Query("apikey") String apikey,
+                                    @Query("q_track") String q_track,
+                                    @Query("q_artist") String q_artist,
+                                    @Query("q_lyrics") String q_lyrics,
+                                    @Query("format") String format);
 }
