@@ -35,4 +35,9 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    // STANFORD NLP LIBRARY
+    //compile group: 'edu.stanford.nlp', name: 'stanford-corenlp', version: '3.6.0'
+
+    compile 'javax.annotation:javax.annotation-api:1.2'
 }

@@ -19,6 +19,7 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import nicholasroberson.melody.R;
@@ -41,6 +42,11 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         Log.e("ACTIVITY_STARTED", "Started MainActivity");
 
+
+        Intent result = new Intent(this,TestAPIActivity.class);
+        startActivity(result);
+
+/*
         tts = new TextToSpeech(this, this);
 
         etData = (EditText) findViewById(R.id.etData);
@@ -75,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         requestNeededPermission();
 
 
-
+*/
     }
 
     public void requestNeededPermission() {
