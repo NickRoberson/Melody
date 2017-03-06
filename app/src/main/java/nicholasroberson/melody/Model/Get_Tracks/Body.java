@@ -1,4 +1,4 @@
-package nicholasroberson.melody.Model.ArtistsGet;
+package nicholasroberson.melody.Model.Get_Tracks;
 
 /**
  * Created by nicholasroberson on 3/6/17.
@@ -6,24 +6,26 @@ package nicholasroberson.melody.Model.ArtistsGet;
 
 import java.io.Serializable;
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
 
+
 @Generated("org.jsonschema2pojo")
 public class Body implements Serializable {
 
-    @SerializedName("artist_list")
+    @SerializedName("track_list")
     @Expose
-    private List<ArtistList> artistList;
+    private List<TrackList> trackList;
 
-    public List<ArtistList> getArtistList() {
-        return artistList;
+    public List<TrackList> getTrackList() {
+        return trackList;
     }
 
-    public void setArtistList(List<ArtistList> artistList) {
-        this.artistList = artistList;
+    public void setTrackList(List<TrackList> trackList) {
+        this.trackList = trackList;
     }
 
 }

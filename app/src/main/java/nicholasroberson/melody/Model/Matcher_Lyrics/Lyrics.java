@@ -1,4 +1,4 @@
-package nicholasroberson.melody.Model.LyricsMatch;
+package nicholasroberson.melody.Model.Matcher_Lyrics;
 
 /**
  * Created by nicholasroberson on 3/6/17.

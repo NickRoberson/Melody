@@ -1,4 +1,4 @@
-package nicholasroberson.melody.Model.TracksGet;
+package nicholasroberson.melody.Model.Get_Tracks;
 
 /**
  * Created by nicholasroberson on 3/6/17.

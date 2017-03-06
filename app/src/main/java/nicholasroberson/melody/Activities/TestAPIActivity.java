@@ -1,13 +1,15 @@
 package nicholasroberson.melody.Activities;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import nicholasroberson.melody.MusixMatchAPI.MusixMatchAPI;
-import nicholasroberson.melody.Model.ArtistsGet.*;
-import nicholasroberson.melody.Model.LyricsMatch.SongLyrics;
-import nicholasroberson.melody.Model.TracksGet.*;
+import nicholasroberson.melody.Model.Get_Artists.*;
+import nicholasroberson.melody.Model.Matcher_Track.*;
+import nicholasroberson.melody.Model.Matcher_Lyrics.*;
+import nicholasroberson.melody.Model.Get_Tracks.*;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -52,6 +54,8 @@ public class TestAPIActivity extends AppCompatActivity {
         getTopArtists();
         // WORKS GETS THE LYRICS FOR A SONG
         getSongLyrics();
+        // WORKS GETS THE INFO FOR A SINGLE TRACK
+        getTrackInfo();
 
 
     }
@@ -63,14 +67,14 @@ public class TestAPIActivity extends AppCompatActivity {
         call.enqueue(new Callback<Tracks>() {
             @Override
             public void onResponse(Call<Tracks> call, Response<Tracks> response) {
-                Log.e("EXAMPLE: onResponse", response.isSuccessful() + " ");
+                Log.e("TOP_TRACKS: onResponse", response.isSuccessful() + " ");
 
                 Tracks tracks = response.body();
             }
 
             @Override
             public void onFailure(Call<Tracks> call, Throwable t) {
-                Log.e("TRACKS: onFailure", t.toString());
+                Log.e("TOP_TRACKS: onFailure", t.toString());
             }
         });
     }
@@ -81,7 +85,7 @@ public class TestAPIActivity extends AppCompatActivity {
         call.enqueue(new Callback<Artists>() {
             @Override
             public void onResponse(Call<Artists> call, Response<Artists> response) {
-                Log.e("EXAMPLE: onResponse", response.isSuccessful() + " ");
+                Log.e("ARTISTS: onResponse", response.isSuccessful() + " ");
                 Artists artistList = response.body();
             }
 
@@ -102,13 +106,33 @@ public class TestAPIActivity extends AppCompatActivity {
         call.enqueue(new Callback<SongLyrics>() {
             @Override
             public void onResponse(Call<SongLyrics> call, Response<SongLyrics> response) {
-                Log.e("EXAMPLE: onResponse", response.isSuccessful() + " ");
+                Log.e("LYRICS: onResponse", response.isSuccessful() + " ");
                 SongLyrics songLyrics = response.body();
             }
 
             @Override
             public void onFailure(Call<SongLyrics> call, Throwable t) {
                 Log.e("LYRICS: onFailure", t.toString());
+            }
+        });
+    }
+
+    public void getTrackInfo() {
+        String track = "paint it black";
+        String artist = "rolling stones";
+        // need both the artist and the track name
+        Call<MatchedTrack> call = musix.getTrackInfo(apiKey, track, artist, "", DEFAULT_FORMAT,1);
+
+        call.enqueue(new Callback<MatchedTrack>() {
+            @Override
+            public void onResponse(Call<MatchedTrack> call, Response<MatchedTrack> response) {
+                Log.e("TRACK_MATCH: onResponse", response.isSuccessful() + " ");
+                MatchedTrack songLyrics = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<MatchedTrack> call, Throwable t) {
+                Log.e("TRACK_MATCH: onFailure", t.toString());
             }
         });
     }

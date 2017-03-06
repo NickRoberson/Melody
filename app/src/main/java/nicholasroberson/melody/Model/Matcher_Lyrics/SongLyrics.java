@@ -1,23 +1,20 @@
-package nicholasroberson.melody.Model.TracksGet;
+package nicholasroberson.melody.Model.Matcher_Lyrics;
 
 /**
  * Created by nicholasroberson on 3/6/17.
  */
 
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-import javax.annotation.Generated;
-
-
-@Generated("org.jsonschema2pojo")
-public class Tracks implements Serializable {
+public class SongLyrics implements Serializable
+{
 
     @SerializedName("message")
     @Expose
     private Message message;
+    private final static long serialVersionUID = -4833836991187901405L;
 
     public Message getMessage() {
         return message;
@@ -25,11 +22,6 @@ public class Tracks implements Serializable {
 
     public void setMessage(Message message) {
         this.message = message;
-    }
-
-    public Tracks withMessage(Message message) {
-        this.message = message;
-        return this;
     }
 
 }

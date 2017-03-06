@@ -1,4 +1,4 @@
-package nicholasroberson.melody.Model.ArtistsGet;
+package nicholasroberson.melody.Model.Get_Artists;
 
 /**
  * Created by nicholasroberson on 3/6/17.

@@ -1,17 +1,19 @@
-package nicholasroberson.melody.Model.TracksGet;
+package nicholasroberson.melody.Model.Get_Tracks;
 
 /**
  * Created by nicholasroberson on 3/6/17.
  */
-import java.io.Serializable;
-import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+import java.util.List;
 
 import javax.annotation.Generated;
 
 @Generated("org.jsonschema2pojo")
-public class PrimaryGenres implements Serializable {
+public class SecondaryGenres implements Serializable{
 
     @SerializedName("music_genre_list")
     @Expose
@@ -23,11 +25,6 @@ public class PrimaryGenres implements Serializable {
 
     public void setMusicGenreList(List<MusicGenreList> musicGenreList) {
         this.musicGenreList = musicGenreList;
-    }
-
-    public PrimaryGenres withMusicGenreList(List<MusicGenreList> musicGenreList) {
-        this.musicGenreList = musicGenreList;
-        return this;
     }
 
 }

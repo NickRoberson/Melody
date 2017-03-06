@@ -1,18 +1,18 @@
-package nicholasroberson.melody.Model.TracksGet;
+package nicholasroberson.melody.Model.Get_Artists;
 
 /**
  * Created by nicholasroberson on 3/6/17.
  */
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import javax.annotation.Generated;
 
-
 @Generated("org.jsonschema2pojo")
-public class Header implements Serializable{
+public class Header implements Serializable {
 
     @SerializedName("status_code")
     @Expose
@@ -20,6 +20,7 @@ public class Header implements Serializable{
     @SerializedName("execute_time")
     @Expose
     private double executeTime;
+    private final static long serialVersionUID = -958703293289494395L;
 
     public int getStatusCode() {
         return statusCode;
@@ -29,22 +30,12 @@ public class Header implements Serializable{
         this.statusCode = statusCode;
     }
 
-    public Header withStatusCode(int statusCode) {
-        this.statusCode = statusCode;
-        return this;
-    }
-
     public double getExecuteTime() {
         return executeTime;
     }
 
     public void setExecuteTime(double executeTime) {
         this.executeTime = executeTime;
-    }
-
-    public Header withExecuteTime(double executeTime) {
-        this.executeTime = executeTime;
-        return this;
     }
 
 }

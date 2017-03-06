@@ -1,18 +1,18 @@
-package nicholasroberson.melody.Model.TracksGet;
+package nicholasroberson.melody.Model.Matcher_Track;
 
 /**
  * Created by nicholasroberson on 3/6/17.
  */
 
+
+import java.io.Serializable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
+import nicholasroberson.melody.Model.Get_Tracks.Track;
 
-import javax.annotation.Generated;
-
-@Generated("org.jsonschema2pojo")
-public class TrackList implements Serializable {
+public class Body implements Serializable
+{
 
     @SerializedName("track")
     @Expose
