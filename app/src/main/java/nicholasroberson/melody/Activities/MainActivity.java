@@ -39,14 +39,16 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+/*
+        String lyrics = "For all the girls that got dick from kanye west If you see 'em in the streets give 'em kanye's best";//split[2];
 
-        Log.e("ACTIVITY_STARTED", "Started MainActivity");
-
-
-        Intent result = new Intent(this,TestAPIActivity.class);
+        Intent result = new Intent(this, TestAPIActivity.class);
+        result.putExtra("LYRICS", lyrics);
+        startActivity(result);
+*/
+        Intent result = new Intent(this, MapSearch.class);
         startActivity(result);
 
-/*
         tts = new TextToSpeech(this, this);
 
         etData = (EditText) findViewById(R.id.etData);
@@ -81,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         requestNeededPermission();
 
 
-*/
     }
 
     public void requestNeededPermission() {
@@ -208,12 +209,16 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         }
 
         public void onResults(Bundle results) {
+
             String str = new String();
             Log.d(TAG, "onResults " + results);
             ArrayList<String> data = results
                     .getStringArrayList(
                             android.speech.SpeechRecognizer.RESULTS_RECOGNITION);
             tvDetectedText.setText("");
+
+            parseTextSendToActivity(data);
+
             boolean timeDetected = false;
             boolean sureDetected = false;
             for (String text : data) {
@@ -238,6 +243,20 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
         public void onEvent(int eventType, Bundle params) {
             Log.d(TAG, "onEvent " + eventType);
+        }
+
+    }
+
+    void parseTextSendToActivity(ArrayList<String> data) {
+        for (String text : data) {
+            if (text.contains("the lyrics")) {
+                String[] split = text.split("the lyrics");
+                String lyrics = "For all the girls that got dick from kanye west If you see 'em in the streets give 'em kanye's best";//split[2];
+
+                Intent result = new Intent(this, TestAPIActivity.class);
+                result.putExtra("LYRICS", lyrics);
+                startActivity(result);
+            }
         }
     }
 }

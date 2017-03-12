@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Melody</string>
+    <string name="title_activity_map_search">Geo-Search</string>
 </resources>

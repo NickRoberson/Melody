@@ -1,14 +1,22 @@
-NLP:
+------------------------------------------- NLP -------------------------------------------
+
 
 Use stanford NLP library to parse text from user and extract information.
 
 http://stanfordnlp.github.io/CoreNLP/api.html
 
 
-API:
+another helpful page for Stanfords NLP library:
+
+http://nlp.stanford.edu/software/tokenizer.shtml
+
+
+------------------------------------------- API -------------------------------------------
 
 List of API's that provide certain information on songs, playlists, artists, etc ... :
 
 https://musicmachinery.com/music-apis/
 
 
+MusicGraph:
+key: 99cf19bc6e433d250845fffd23941126

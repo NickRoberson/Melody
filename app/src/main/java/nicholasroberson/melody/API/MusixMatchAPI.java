@@ -1,4 +1,4 @@
-package nicholasroberson.melody.MusixMatchAPI;
+package nicholasroberson.melody.API;
 
 import nicholasroberson.melody.Model.Get_Artists.*;
 import nicholasroberson.melody.Model.Matcher_Lyrics.SongLyrics;

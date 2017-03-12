@@ -1,12 +1,11 @@
 package nicholasroberson.melody.Activities;
 
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import nicholasroberson.melody.Model.Search_Track.TrackResults;
-import nicholasroberson.melody.MusixMatchAPI.MusixMatchAPI;
+import nicholasroberson.melody.API.MusixMatchAPI;
 import nicholasroberson.melody.Model.Get_Artists.*;
 import nicholasroberson.melody.Model.Matcher_Track.*;
 import nicholasroberson.melody.Model.Matcher_Lyrics.*;
@@ -25,6 +24,8 @@ public class TestAPIActivity extends AppCompatActivity {
 
     private final String baseURL = "http://api.musixmatch.com/ws/1.1/";
     private final String apiKey = "68112ce7d82e96acd38bd100c62c8b33";
+
+
     private final int LIMIT_PAGE_NUMBER = 5;
     private final int LIMIT_TRACKS_PER_PAGE = 10;
     private final String COUNTRY_US = "us";
@@ -32,13 +33,14 @@ public class TestAPIActivity extends AppCompatActivity {
     private final String COUNTRY_GBR = "gbr";
     private final String DEFAULT_FORMAT = "json";
 
-
     private Retrofit retrofit;
     private MusixMatchAPI musix;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        String lyrics = (String) getIntent().getSerializableExtra("LYRICS");
 
         Log.d("TEST_API_ACTIVITY", "activity started");
 
@@ -60,7 +62,7 @@ public class TestAPIActivity extends AppCompatActivity {
         // WORKS
         searchForTracks();
         // WORKS
-        searchForTracksByLyrics();
+        searchForTracksByLyrics(lyrics);
 
     }
 
@@ -72,7 +74,6 @@ public class TestAPIActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Tracks> call, Response<Tracks> response) {
                 Log.e("TOP_TRACKS: onResponse", response.isSuccessful() + " ");
-
                 Tracks tracks = response.body();
             }
 
@@ -161,8 +162,8 @@ public class TestAPIActivity extends AppCompatActivity {
         });
     }
 
-    public void searchForTracksByLyrics() {
-        String lyrics = "For all the girls that got dick from kanye west If you see 'em in the streets give 'em kanye's best";
+    public void searchForTracksByLyrics(String lyrics) {
+        //String lyrics = "For all the girls that got dick from kanye west If you see 'em in the streets give 'em kanye's best";
         Call<TrackResults> call = musix.searchTracks(apiKey, "", "", lyrics, DEFAULT_FORMAT);
 
         call.enqueue(new Callback<TrackResults>() {
